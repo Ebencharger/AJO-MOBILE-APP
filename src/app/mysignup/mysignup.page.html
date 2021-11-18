@@ -1,0 +1,30 @@
+<ion-app>
+    <main class="row">
+      <main class="col-sm">
+        <form class="bBody" [formGroup]="forms">
+          <div class="login">
+            <p class="text-success">PASSWORD PAGE</p>
+          </div>
+          <div class="fauser">
+            <i class="fa fa-lock text-success"></i>
+          </div>
+          <p class="text-justify mt-5 font-weight-bold" style="font-size: 13px;">A TOKEN WILL BE SENT TO THE EMAIL YOU PROVIDE, PLEASE NOTE THAT THE TOKEN WILL
+              BE SENT TO THE EMAIL YOU REGISTERED THIS ACCOUNT WITH, THANKS.
+          </p>
+          <div class="user">
+            <ion-item class="input">
+              <ion-label position="floating">YOUR EMAIL <i class="fa fa-user text-success"></i></ion-label>
+              <ion-input formControlName="email" style="font-size: 19px;"></ion-input>
+            </ion-item>
+          </div>
+          <div class="d-flex font-weight-bold mt-3 already">
+            <button class="rem font-weight-bold" routerLink="/login">Login</button>
+            <button class="ml-2 text-success rem font-weight-bold" routerLink="/newsign">Create an Account</button>
+          </div>
+          <div class="btn">
+            <ion-button [disabled]="forms?.invalid" color="success" (click)="handleToken()">GENERATE TOKEN</ion-button>
+          </div>
+        </form>
+      </main>
+    </main>
+  </ion-app>

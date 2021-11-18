@@ -1,0 +1,116 @@
+
+.bBody{
+    width: 100%;
+    height: 100vh;
+    padding: 20px;
+    background-color: rgb(224, 240, 209);
+    .login{
+        display: flex;
+        align-items: center;
+        justify-content: center; 
+        margin-top: 40px;
+        p{
+            font-size: 25px;
+            font-weight: bold;
+        }
+    }
+    .fauser{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 0px;
+        i{
+            width: 100px;
+            height: 100px;
+            border: 2px solid rgb(112, 202, 112);
+            border-radius: 100%;
+            display: flex;
+            font-size: 50px;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+    .scroll{
+        margin-top: 10px;
+        width: 100%;
+        height: 36vh;
+        overflow-y: scroll;
+}
+
+.user{
+    margin-top: 0px;
+    .input{
+        width: 100%;
+        height: 70px;
+        --background: transparent;
+        font-size: 19px;
+        border: none;
+        border-bottom: 2px solid rgb(112, 202, 112);
+        position: relative;
+        i{
+        position: absolute;
+        right: 5%;
+        top: 30%;
+        }
+        ion-label{
+            color: black;
+        }
+    }
+}
+
+    ion-item {
+        --highlight-color-focused: none;
+        }
+       
+      
+
+        
+   
+
+    .btn{
+        display: flex;
+            align-items: center;
+            width: 100%;
+            justify-content: center;
+            margin-top: 10px;
+            ion-button{
+                width: 100%;
+                font-size: 25px;
+                height: 50px;
+            }
+    }
+
+    .already{
+        justify-content: space-around;
+        width: 100%;
+        margin-top: 20px;
+    }
+    .country{
+        width: 90%;
+        height: 70vh;
+        background: white;
+        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.4);
+        position: absolute;
+        z-index: 1000;
+        top: 20vh;
+        overflow-y: scroll;
+        padding-left: 20px;
+        padding-top: 20px;
+        h3{
+            margin-bottom: 10px;
+        }
+    }
+    .rem{
+        outline: none;
+        background-color: transparent;
+    }
+}
+
+@media(max-width:360px){
+    .login{
+        margin-top: 0px !important;
+    }
+    .fauser{
+        margin-top: -10px !important;
+    }
+}

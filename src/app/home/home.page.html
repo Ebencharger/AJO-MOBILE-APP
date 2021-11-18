@@ -1,20 +1,20 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-app>
+  <ion-content [fullscreen]="true">
+    <div class="header w-100">
+      <div class="p">AJO</div>
+      <div class="spin">
+        <i class="fa fa-spinner fa-spin text-white sm-2"></i>
+      </div>
+      <div class="power text-center">
+        <p>POWERED BY FELIX & FRIENDS Inc</p>
+        <p>@Ebencharger {{year}}</p>
+        <button routerLink="/login" class="btn btn-dark">LET'S GET STARTED</button>
+        <ion-input></ion-input>
+       </div>
+    </div>
+  </ion-content>
+</ion-app>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-</ion-content>
+
+
