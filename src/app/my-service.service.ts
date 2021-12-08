@@ -10,7 +10,7 @@ export class MyServiceService {
   time:any;
   amount:any;
   loginUser:any;
- countryArray=[ 
+  countryArray=[ 
   {name: 'Afghanistan', code: 'AF'}, 
   {name: 'Åland Islands', code: 'AX'}, 
   {name: 'Albania', code: 'AL'}, 

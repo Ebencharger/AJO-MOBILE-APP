@@ -24,24 +24,29 @@ export class LoginPage implements OnInit {
     return this.forms.get('password');
   }
   ngOnInit() {
-    if (this.nativeStorage.getItem("AJO")) {
-      this.v = this.nativeStorage.getItem("AJO");
-      this.AJO = JSON.parse(this.v)
-    }
-    else {
-      this.AJO = [
-        { admin: [{ id: "AJO-ADMIN", password: "ajowill@2021" }], user: [] }
-      ]
-    }
-    if (localStorage.getItem("AJO")) {
-      this.v = localStorage.getItem("AJO");
-      this.AJO = JSON.parse(this.v)
-    }
-    else {
-      this.AJO = [
-        { admin: [{ id: "AJO-ADMIN", password: "ajowill@2021" }], user: [] }
-      ]
-    }
+    this.nativeStorage.getItem('AJO')
+    .then(
+      data => {
+        this.AJO = JSON.parse(data)
+      },
+      error => {
+        this.AJO = [
+          { admin: [{ id: "AJO-ADMIN", password: "ajowill@2021" }], user: []  }
+        ],
+        this.nativeStorage.setItem("AJO", JSON.stringify(this.AJO)),
+        error
+      }
+    );
+     
+    // if (localStorage.getItem("AJO")) {
+    //   this.v = localStorage.getItem("AJO");
+    //   this.AJO = JSON.parse(this.v)
+    // }
+    // else {
+    //   this.AJO = [
+    //     { admin: [{ id: "AJO-ADMIN", password: "ajowill@2021" }], user: [] }
+    //   ]
+    // }
   }
  
 
@@ -53,7 +58,7 @@ export class LoginPage implements OnInit {
           this.service.loginUser = this.AJO[0].user[i];
           this.service.id = i;
           if (this.AJO[0].user[i].driftplan != "") {
-            this.service.amount = this.AJO[0].user[i].driftplan[0].amount;
+            this.service.amount = this.AJO[0].user[i].driftplan.amount;
           }
           this.route2.navigate([`/dashboard`])
           this.showm = true;
@@ -75,10 +80,9 @@ export class LoginPage implements OnInit {
       }
 
     }
-    else {
+    else if(this.AJO[0].user==""){
       console.log("heyyyy");
-
-      this.forms.get('phone')?.setValue(["INVALID PHONE NUMBER!"]);
+      this.forms.get('email')?.setValue(["email doesn't exist!"]);
       this.forms.get('password')?.setValue([""]);
     }
     // if (email==email && password==password) {

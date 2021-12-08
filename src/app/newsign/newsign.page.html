@@ -1,4 +1,4 @@
-<form class="bBody" (mouseout)="handleOut()" [formGroup]="forms" novalidate (ngSubmit)="handleSignUp()">
+<form class="bBody" (mouseout)="handleOut()" [formGroup]="forms">
   <div class="faint" *ngIf="showdis">
     <div class="card cord text-success text-center">YOUR FORM SUBMITTED SUCCESSFULLY
        <button class=" btn-primary" (click)="handleShowme()">OKAY</button>
@@ -69,7 +69,7 @@
       <button class="text-success rem font-weight-bold" routerLink="/login">Login</button>
     </div>
     <div class="btn">
-      <button class="bg-success" [disabled]="forms?.invalid">SIGNUP</button>
+      <ion-button (click)="handleSignUp()" color="success" [disabled]="forms?.invalid">SIGNUP</ion-button>
     </div>
   </div>
 </form>

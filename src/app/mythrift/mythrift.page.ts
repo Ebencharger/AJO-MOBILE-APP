@@ -29,52 +29,21 @@ export class MythriftPage implements OnInit {
   dollar = "$";
   reference = '';
   title:any;
-  constructor(public myservice:MyServiceService, private route: Router, private fb: FormBuilder, private nativeStorage:NativeStorage) { }
-  myForms=this.fb.group({myDrift:["", [Validators.email]]})
-  get myDrift(){
-    return this.myForms.get("myDrift");
-  }
-
-  user: any = [];
-  users: any;
-  day: any;
-  dayname:any;
-  date = new Date;
-  newmonth: any;
-  newdate: any;
-  acctime: any;
-  balance:any;
-  ngOnInit(): void {
-    this.reference = `ref-${Math.ceil(Math.random() * 10e13)}`;
-    if (localStorage.getItem("AJO")) {
-      console.log("YES");
-      this.v = localStorage.getItem("AJO");
-      this.AJO = JSON.parse(this.v);
-    }
-    if (this.nativeStorage.getItem("AJO")) {
-      console.log("YES");
-      this.v = this.nativeStorage.getItem("AJO");
-      this.AJO = JSON.parse(this.v);
-    }
-    console.log(this.driftAmount);
-    if (this.AJO[0].user[this.myservice.id].driftplan == "") {
+  constructor(public myservice:MyServiceService, private route: Router, private fb: FormBuilder, private nativeStorage:NativeStorage) {
+    if (this.myservice.loginUser.driftplan == "") {
       this.mustset = true;
+      this.driftPlan = "";
     }
-    else {
+    else if(this.myservice.loginUser.driftplan != "") {
       this.mustset = false;
+      this.driftPlan = this.myservice.loginUser.driftplan[0].type + "-" + this.myservice.loginUser.driftplan[0].drift;
+      this.driftAmount=this.myservice.loginUser.driftplan[0].amount;
     }
     this.dayname=this.myservice.dayarray[this.date.getDay()];
     this.curry = this.mylast;
     this.users = this.myservice.loginUser;
-    this.balance = this.AJO[0].user[this.myservice.id].balance;
-    // this.mybalance = this.AJO[0].bankaccount[0].balance;
-    if (this.AJO[0].user[this.myservice.id].driftplan == "") {
-      this.driftPlan = "";
-    }
-    else {
-      this.driftPlan = this.AJO[0].user[this.myservice.id].driftplan[0].type + "-" + this.AJO[0].user[this.myservice.id].driftplan[0].drift;
-      this.driftAmount=this.AJO[0].user[this.myservice.id].driftplan[0].amount
-    }
+    // this.balance = (this.myservice.loginUser.balance)/(560);
+
 
     if (this.date.getDate() < 10) {
       this.day = "0" + this.date.getDate();
@@ -85,13 +54,14 @@ export class MythriftPage implements OnInit {
     if (this.date.getMonth() < 10) {
       this.newmonth = "0" + (this.date.getMonth() + 1);
     }
-    else if (this.date.getDate() >= 10) {
+    else if (this.date.getMonth() >= 10) {
       this.newmonth = (this.date.getMonth()) + 1;
     }
     this.newdate = this.day + "-" + this.newmonth + "-" + this.date.getFullYear();
     this.acctime = this.date.getHours() + ":" + this.date.getMinutes();
-    console.log(this.AJO[0].user[this.myservice.id].statement.length);
 
+    console.log(this.AJO[0]);
+    
     if (this.AJO[0].user[this.myservice.id].driftplan != "") {
       if (this.AJO[0].user[this.myservice.id].driftplan[0].drift == "MONTHLY" && this.AJO[0].user[this.myservice.id].statement != "") {
         if (this.AJO[0].user[this.myservice.id].statement.length > 1) {
@@ -164,19 +134,62 @@ export class MythriftPage implements OnInit {
     else if (this.AJO[0].user[this.myservice.id].driftplan == "") {
       this.mustset = true;
     }
+
+   }
+  myForms=this.fb.group({myDrift:["", [Validators.email]]})
+  get myDrift(){
+    return this.myForms.get("myDrift");
+  }
+
+  user: any = [];
+  users: any;
+  day: any;
+  dayname:any;
+  date = new Date;
+  newmonth: any;
+  newdate: any;
+  acctime: any;
+  balance:any;
+  ngOnInit(): void {
+    this.reference = `ref-${Math.ceil(Math.random() * 10e13)}`;
+    
+    // if (localStorage.getItem("AJO")) {
+    //   console.log("YES");
+    //   this.v = localStorage.getItem("AJO");
+    //   this.AJO = JSON.parse(this.v);
+    // }
+      setInterval(()=>{
+        this.nativeStorage.getItem('AJO')
+        .then(
+          data => {
+            {
+              this.AJO = JSON.parse(data)
+            }
+          },
+          error => {
+            this.AJO = [
+              { admin: [{ id: "AJO-ADMIN", password: "ajowill@2021" }], user:[] }
+            ],
+            this.nativeStorage.setItem("AJO", JSON.stringify(this.AJO)),
+            error
+              
+          }
+        );  
+        console.log(JSON.stringify(this.AJO[0])); 
+        this.balance=(this.AJO[0].user[this.myservice.id].balance)/560;
+      }, 10)
   }
 
   drift() {
     let driftSta = { amountDrif: this.driftAmount, time: this.acctime, date: this.newdate, day:this.dayname, checkday:this.dayname, ref:this.ref};
-    this.AJO[0].user[this.myservice.id].balance = (Number(this.driftAmount)) + this.AJO[0].user[this.myservice.id].balance;
+    this.AJO[0].user[this.myservice.id].balance = (Number(this.driftAmount * 560)) + this.AJO[0].user[this.myservice.id].balance;
     this.AJO[0].user[this.myservice.id].statement.push(driftSta);
-    localStorage.setItem("AJO", JSON.stringify(this.AJO));
     this.nativeStorage.setItem('AJO', JSON.stringify(this.AJO))
     .then(
       () => console.log('Stored item!'),
       error => console.error('Error storing item', error)
     );
-    this.route.navigate(['dashboard/balance'])
+    this.route.navigate(['dashboard'])
   }
 
   showmme() {

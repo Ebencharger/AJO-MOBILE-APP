@@ -8,7 +8,7 @@
   <div class="mycard">
     <form class="card" [formGroup]="myForms">
       <span class="currency">BALANCE</span>
-      <p class="balance"><span>{{dollar}}</span>{{balance}}</p>
+      <p class="balance">{{balance | currency}}</p>
       <span class="change">YOUR DRIFT PLAN</span>
       <select name="" id="" class="form-control-lg form-group w-100">
         <option [value]="driftPlan">{{driftPlan}}</option>
@@ -19,8 +19,8 @@
       </div>
       <div class="w-100">
         <button type="button" class="btn btn-primary form-group w-100"  angular4-paystack
-          [key]="'pk_test_b151276bd6786f5c094f1c35d7ee0008f073fb2d'" [email]="'ajayioluwaseunebenezer@gmail.com'"
-          [amount]="driftAmount" [ref]="reference" (paymentInit)="paymentInit()" (onClose)="paymentCancel()"
+          [key]="'pk_test_b151276bd6786f5c094f1c35d7ee0008f073fb2d'" [email]="myservice.loginUser.email"
+          [amount]="driftAmount*(100*560)" [ref]="reference" (paymentInit)="paymentInit()" (onClose)="paymentCancel()"
           (callback)="paymentDone($event)">DRIFT</button>
       </div>
     </form>

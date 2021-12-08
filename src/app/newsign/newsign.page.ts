@@ -3,7 +3,6 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { MyServiceService } from '../my-service.service';
-import { EmailComposer } from '@ionic-native/email-composer/ngx';
 
 @Component({
   selector: 'app-newsign',
@@ -29,7 +28,7 @@ export class NewsignPage implements OnInit {
   showdis = false;
   chooseCountry = "";
   countryShow = false;
-  constructor(public mycountry: MyServiceService, private fb: FormBuilder, private route: Router, private nativeStorage: NativeStorage, private emailComposer: EmailComposer) { }
+  constructor(public mycountry: MyServiceService, private fb: FormBuilder, private route: Router, private nativeStorage: NativeStorage) { }
   forms = this.fb.group(
     {
       fullname: ["", [Validators.required, Validators.pattern("^[A-Za-z]{1,100}[ X]{0,1}[A-Za-z]{0,100} [ X]{0,1}[A-Za-z]{0,100}[ X]{0,1}$")]],
@@ -61,24 +60,26 @@ export class NewsignPage implements OnInit {
   ngOnInit() {
     this.myCountry = this.mycountry.countryNumArray;
     this.myCountryNo = this.mycountry.countryNumArray;
-    if (this.nativeStorage.getItem("AJO")) {
-      this.v = this.nativeStorage.getItem("AJO");
-      this.AJO = JSON.parse(this.v)
-    }
-    else {
-      this.AJO = [
-        { admin: [{ id: "AJO-ADMIN", password: "ajowill@2021" }] }
-      ]
-    }
-    if (localStorage.getItem("AJO")) {
-      this.v = localStorage.getItem("AJO");
-      this.AJO = JSON.parse(this.v)
-    }
-    else {
-      this.AJO = [
-        { admin: [{ id: "AJO-ADMIN", password: "ajowill@2021" }] }
-      ]
-    }
+    this.nativeStorage.getItem('AJO')
+    .then(
+      data => this.AJO = JSON.parse(data),
+      error => {
+        this.AJO = [
+          { admin: [{ id: "AJO-ADMIN", password: "ajowill@2021" }], user: []  }
+        ],
+        this.nativeStorage.setItem("AJO", JSON.stringify(this.AJO)),
+        error
+      }
+    );
+    // if (localStorage.getItem("AJO")) {
+    //   this.v = localStorage.getItem("AJO");
+    //   this.AJO = JSON.parse(this.v)
+    // }
+    // else {
+    //   this.AJO = [
+    //     { admin: [{ id: "AJO-ADMIN", password: "ajowill@2021" }] }
+    //   ]
+    // }
     if (this.date.getDate() < 10) {
       this.day = "0" + this.date.getDate();
     }
@@ -144,18 +145,8 @@ export class NewsignPage implements OnInit {
       this.nativeStorage.setItem('AJO', JSON.stringify(this.AJO))
         .then(
           () => console.log('Stored item!'),
-          error => console.error('Error storing item', error)
+          error => alert('Error storing item'+ error)
         );
-        let nemail = {
-          to: email,
-          subject: 'AJO',
-          body: `Hi ${fullname}, welcome. This are your registration details, please keep them safe
-          Password: ${password}. Thanks for joining Ajo`,
-          isHtml: true
-        }
-    
-        // Send a text message using default options
-        this.emailComposer.open(nemail);
       this.showdis = true;
 
     }

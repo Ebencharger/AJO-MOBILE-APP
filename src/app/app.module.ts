@@ -8,7 +8,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { SignupPipe } from './signup.pipe';
 import { Angular4PaystackModule } from 'angular4-paystack';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
-import { EmailComposer } from '@ionic-native/email-composer/ngx';
 
 @NgModule({
   declarations: [AppComponent, SignupPipe],
@@ -19,7 +18,7 @@ import { EmailComposer } from '@ionic-native/email-composer/ngx';
      AppRoutingModule,
      Angular4PaystackModule.forRoot('pk_test_b151276bd6786f5c094f1c35d7ee0008f073fb2d'),
     ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, Camera,NativeStorage, EmailComposer],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, Camera,NativeStorage],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

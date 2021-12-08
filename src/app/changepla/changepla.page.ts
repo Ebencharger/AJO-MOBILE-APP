@@ -27,17 +27,30 @@ export class ChangeplaPage implements OnInit {
     return this.forms.get('amount')
   }
   ngOnInit(): void {
-    if (localStorage.getItem("AJO")) {
-      console.log("YES");
-      this.v=localStorage.getItem("AJO");
-      this.AJO=JSON.parse(this.v);
-    }
-    if (this.nativeStorage.getItem("AJO")) {
-      console.log("YES");
-      this.v=this.nativeStorage.getItem("AJO");
-      this.AJO=JSON.parse(this.v);
-    }
-    this.timecount=this.AJO[0].user[this.service.id].driftplan;
+    // if (localStorage.getItem("AJO")) {
+    //   console.log("YES");
+    //   this.v=localStorage.getItem("AJO");
+    //   this.AJO=JSON.parse(this.v);
+    // }
+    // if (this.nativeStorage.getItem("AJO")) {
+    //   console.log("YES");
+    //   this.v=this.nativeStorage.getItem("AJO");
+    //   this.AJO=JSON.parse(this.v);
+    // }
+    this.nativeStorage.getItem('AJO')
+    .then(
+      data => {
+        this.AJO = JSON.parse(data),
+        this.timecount=this.AJO[0].user[this.service.id].driftplan
+      },
+      error => {
+        this.AJO = [
+          { admin: [{ id: "AJO-ADMIN", password: "ajowill@2021" }], user: []  }
+        ],
+        this.nativeStorage.setItem("AJO", JSON.stringify(this.AJO)),
+        error
+      }
+    );
   }
   changeme(params:any){
    if (this.myplan==3) {
