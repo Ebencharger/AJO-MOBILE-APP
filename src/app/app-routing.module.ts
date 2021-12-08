@@ -3,10 +3,6 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
-  {
     path: '',
     redirectTo: 'login',
     pathMatch: 'full'
@@ -14,10 +10,6 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
-  },
-  {
-    path: 'signup',
-    loadChildren: () => import('./signup/signup.module').then( m => m.SignupPageModule)
   },
   {
     path: 'mysignup',
@@ -30,6 +22,34 @@ const routes: Routes = [
   {
     path: 'retrieve',
     loadChildren: () => import('./retrieve/retrieve.module').then( m => m.RetrievePageModule)
+  },
+  {
+    path: 'terms',
+    loadChildren: () => import('./terms/terms.module').then( m => m.TermsPageModule)
+  },
+  {
+    path: 'dashboard',
+    loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardPageModule),
+  },
+  {
+    path: 'dashboard/mywallet',
+    loadChildren: () => import('./mywallet/mywallet.module').then( m => m.MywalletPageModule)
+  },
+  {
+    path: 'dashboard/myprofile',
+    loadChildren: () => import('./myprofile/myprofile.module').then( m => m.MyprofilePageModule)
+  },
+  {
+    path: 'dashboard/mychangeplan',
+    loadChildren: () => import('./changepla/changepla.module').then( m => m.ChangeplaPageModule)
+  },
+  {
+    path: 'dashboard/mythrift',
+    loadChildren: () => import('./mythrift/mythrift.module').then( m => m.MythriftPageModule)
+  },
+  {
+    path: 'create',
+    loadChildren: () => import('./create/create.module').then( m => m.CreatePageModule)
   },
 ];
 

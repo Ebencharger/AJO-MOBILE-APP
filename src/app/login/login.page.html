@@ -1,7 +1,7 @@
 <ion-app>
   <main class="row">
     <main class="col-sm">
-      <form class="bBody" [formGroup]="forms">
+      <form class="bBody" [formGroup]="forms" novalidate (ngSubmit) ="handleLogin()">
         <div class="login">
           <p class="text-success">USER LOGIN PAGE</p>
         </div>
@@ -26,7 +26,7 @@
           <button class="ml-2 text-success rem font-weight-bold" routerLink="/newsign">Create an Account</button>
         </div>
         <div class="btn">
-          <ion-button [disabled]="forms?.invalid" color="success" (click)="handleCreate()">LOGIN</ion-button>
+          <button [disabled]="forms?.invalid" class="bg-success">LOGIN</button>
         </div>
       </form>
     </main>

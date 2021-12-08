@@ -1,0 +1,44 @@
+<div class="body">
+  <div class="mycard">
+    <div class="faint" [hidden]="showdis">
+      <div class="card cord text-success">
+        <div class="success"><p>YOUR DRIFT PLAN CHANGED SUCCESSFULLY</p></div>
+        <button class="btn-primary" (click)="showme()">OKAY</button>
+      </div>
+    </div>
+    <form class="card crad" [formGroup]="forms">
+      <span class="change"> ACTIVATE YOUR DRIFT PLAN</span>
+      <select name="type" id="type" class="form-control-lg form-group w-100" (change)="changeme(this)"
+        formControlName="type">
+        <option value="SELECT DRIFT PLAN" [selected]="type?.untouched">SELECT DRIFT PLAN</option>
+        <option value="YEARLY">YEARLY</option>
+        <option value="WEEKLY">WEEKLY</option>
+        <option value="MONTHLY">MONTHLY</option>
+      </select>
+      <select name="" id="drift" class="form-control-lg form-group w-100" (change)="changeme(this)"
+        formControlName="drift">
+        <option value="SELECT DRIFT TYPE" [selected]="drift?.untouched">SELECT DRIFT TYPE</option>
+        <option value="DAILY">DAILY</option>
+        <option value="WEEKLY">WEEKLY</option>
+        <option value="MONTHLY">MONTHLY</option>
+      </select>
+      <select name="" id="amount" class="form-control-lg form-group w-100" (change)="changeme(this)"
+        formControlName="amount">
+        <option value="SELECT DRIFT AMOUNT" [selected]="amount?.untouched">SELECT DRIFT AMOUNT</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+        <option value="200">200</option>
+        <option value="500">500</option>
+        <option value="1000">1000</option>
+      </select>
+      <div>
+        <button type="button" class="btn btn-primary form-group" [disabled]="myplan!=3" (click)="setup()">SETUP DRIFT PLAN</button>
+      </div>
+    </form>
+  </div>
+</div>

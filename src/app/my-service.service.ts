@@ -4,6 +4,12 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class MyServiceService {
+  dayarray=["Sunday","Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  id:any;
+  date:any;
+  time:any;
+  amount:any;
+  loginUser:any;
  countryArray=[ 
   {name: 'Afghanistan', code: 'AF'}, 
   {name: 'Åland Islands', code: 'AX'}, 

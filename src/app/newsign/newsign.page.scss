@@ -2,6 +2,8 @@
 .bBody{
     width: 100%;
     height: 100vh;
+    position: absolute;
+    top: 0px;
     padding: 20px;
     background-color: rgb(224, 240, 209);
     .login{
@@ -73,10 +75,11 @@
             width: 100%;
             justify-content: center;
             margin-top: 10px;
-            ion-button{
+            button{
                 width: 100%;
                 font-size: 25px;
                 height: 50px;
+                color:white;
             }
     }
 
@@ -106,9 +109,42 @@
     }
 }
 
+.faint{
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    z-index: 6000;
+    left:0px;
+    top:0px
+}
+.card{
+    animation-name: eben;
+    animation-duration: 2s;
+    transition: 2s;
+    position: absolute;
+    width: 100%;
+    height: 40vh;
+    top: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    font-weight: bold;
+    button{
+        border: none;
+        outline: none;
+        width: 100%;
+        height: 50px;
+        border-radius: 10px;
+        color: white;
+        margin-top: 20px;
+    }
+}
+
 @media(max-width:360px){
     .login{
-        margin-top: 0px !important;
+        margin-top: 20px !important;
     }
     .fauser{
         margin-top: -10px !important;

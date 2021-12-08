@@ -1,0 +1,99 @@
+.mycard{
+    .crad{
+        position: absolute;
+    top: 60px;
+    left: 0px;
+    right: 0px;
+        width: 100%;
+        background-color: white;
+        height: 90vh;
+        padding: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-items: center;
+        .currency{
+            font-size: 30px;
+            font-weight: bold; 
+        }
+        .change{
+            font-size: 20px;
+            font-weight: bold; 
+            margin-bottom: 4%;
+        }
+        .balance{
+            color:#34D134;
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+       .refresh{
+           align-items: center;
+           justify-content: center;
+           display: flex;
+           color: white;
+           background-color: #34D134;
+           width: 50px;
+           height: 50px;
+           margin-bottom: 20px;
+        }
+        i{
+            font-size: 30px;
+       }
+    }
+}
+
+// .body{
+//     animation-name: eben;
+//     animation-duration: 2s;
+//     transition: all 2s;
+// }
+.dollar{
+position: absolute;
+font-size: 25px;
+font-weight: bold;
+color: #34D134;
+margin-left: 5px;
+}
+
+.faint{
+width: 100%;
+height: 100vh;
+background-color: rgba(0, 0, 0, 0.5);
+position: absolute;
+z-index: 6000;
+top: 0px;
+left:0px;
+}
+.cord{
+animation-name: eben;
+animation-duration: 2s;
+transition: 2s;
+position: absolute;
+width: 100%;
+height: 300px;
+top: 20vh;
+padding: 20px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 25px;
+font-weight: bold;
+.success{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+button{
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    color: white;
+    margin-top: 20px;
+}
+}
+

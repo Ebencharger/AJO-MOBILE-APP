@@ -4,17 +4,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { NewsignPageRoutingModule } from './newsign-routing.module';
+import { ChangeplaPageRoutingModule } from './changepla-routing.module';
 
-import { NewsignPage } from './newsign.page';
+import { ChangeplaPage } from './changepla.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    NewsignPageRoutingModule, ReactiveFormsModule
+    ChangeplaPageRoutingModule, ReactiveFormsModule
   ],
-  declarations: [NewsignPage]
+  declarations: [ChangeplaPage]
 })
-export class NewsignPageModule {}
+export class ChangeplaPageModule {}

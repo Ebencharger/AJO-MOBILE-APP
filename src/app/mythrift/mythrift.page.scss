@@ -1,0 +1,101 @@
+.mycard{
+    top: 60px;
+    left: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    margin-left: 3%;
+    height: 90vh;
+    background-color: white;
+    z-index: 9000;
+    .card{
+        width: 100%;
+        background-color: white;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-items: center;
+        padding-left: 10px;
+        padding-right: 38px;
+        .currency{
+            font-size: 30px;
+            font-weight: bold; 
+        }
+        .change{
+            font-size: 20px;
+            font-weight: bold; 
+        }
+        .balance{
+            color:#34D134;
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+       .refresh{
+           align-items: center;
+           justify-content: center;
+           display: flex;
+           color: white;
+           background-color: #34D134;
+           width: 50px;
+           height: 50px;
+           margin-bottom: 20px;
+        }
+        i{
+            font-size: 30px;
+       }
+    }
+}
+
+.body{
+animation-name: eben;
+animation-duration: 2s;
+transition: all 2s;
+}
+.dollar{
+position: absolute;
+font-size: 25px;
+font-weight: bold;
+color: #34D134;
+margin-left: 5px;
+}
+
+
+.faint{
+width: 100%;
+height: 100vh;
+background-color: rgba(0, 0, 0, 0.5);
+position: absolute;
+z-index: 20000;
+animation-name: eben;
+animation-duration: 2s;
+transition: all 2s;
+left:0px;
+top:0px
+}
+.cord{
+position: absolute;
+width: 100%;
+height: 40vh;
+padding: 20px;
+z-index: 20000;
+top: 30vh;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 25px;
+font-weight: bold;
+button{
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    color: white;
+    margin-top: 60px;
+}
+} 
+
