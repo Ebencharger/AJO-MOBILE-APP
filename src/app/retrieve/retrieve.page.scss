@@ -3,7 +3,7 @@ $label-md-text-color-focused: rgb(218, 245, 192);
     width: 100%;
     height: 100vh;
     padding: 20px;
-    background-color: rgb(224, 240, 209);
+    background-color: #5BC8D7;
     .login{
         display: flex;
         align-items: center;
@@ -22,9 +22,10 @@ $label-md-text-color-focused: rgb(218, 245, 192);
         i{
             width: 100px;
             height: 100px;
-            border: 2px solid rgb(112, 202, 112);
+            border: 2px solid #36383b;
             border-radius: 100%;
             display: flex;
+            color: white;
             font-size: 50px;
             align-items: center;
             justify-content: center;
@@ -38,7 +39,7 @@ $label-md-text-color-focused: rgb(218, 245, 192);
             --background: transparent;
             font-size: 19px;
             border: none;
-            border-bottom: 2px solid rgb(112, 202, 112);
+            border-bottom: 2px solid white;
             position: relative;
             outline: none;
             i{
@@ -47,13 +48,16 @@ $label-md-text-color-focused: rgb(218, 245, 192);
             top: 30%;
             }
             ion-label{
-                color: black;
+                color: white;
             }
         }
     }
 
     ion-item {
         --highlight-color-focused: none;
+        --highlight-height:none;
+        --highlight-height: 0px; 
+        --border-color: transparent!important;
         }
        
       
@@ -75,6 +79,8 @@ $label-md-text-color-focused: rgb(218, 245, 192);
                 width: 100%;
                 font-size: 25px;
                 height: 50px;
+                --background: white !important;
+                color:#00e1ff !important;
             }
     }
     .rem{

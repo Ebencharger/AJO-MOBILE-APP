@@ -3,10 +3,10 @@
     <main class="col-sm">
       <form class="bBody" [formGroup]="forms">
         <div class="login">
-          <p class="text-success">PASSWORD PAGE</p>
+          <p class="text-white">PASSWORD PAGE</p>
         </div>
         <div class="fauser">
-          <i class="fa fa-lock text-success"></i>
+          <i class="fa fa-lock"></i>
         </div>
         <p class="text-justify mt-2 font-weight-bold" style="font-size: 13px;">A TOKEN WILL BE SENT TO THE EMAIL YOU PROVIDE, PLEASE NOTE THAT THE TOKEN WILL
             BE SENT TO THE EMAIL YOU REGISTERED THIS ACCOUNT WITH, THANKS.
@@ -14,29 +14,29 @@
        <div class="myform">
         <div class="user">
           <ion-item class="input">
-            <ion-label position="floating">TOKEN <i class="fa fa-user text-success"></i></ion-label>
+            <ion-label position="floating">TOKEN <i class="fa fa-user text-white"></i></ion-label>
             <ion-input placeholder="check your email for token" formControlName="email" style="font-size: 19px;"></ion-input>
           </ion-item>
         </div>
         <div class="user">
           <ion-item class="input">
-            <ion-label position="floating">ENTER NEW PASSWORD<i class="fa fa-user text-success"></i></ion-label>
+            <ion-label position="floating">ENTER NEW PASSWORD<i class="fa fa-user text-white"></i></ion-label>
             <ion-input placeholder="minimum of 8 characters" type="password" formControlName="password" style="font-size: 19px;"></ion-input>
           </ion-item>
         </div>
         <div class="user">
           <ion-item class="input">
-            <ion-label position="floating">RE-ENTER NEW PASSWORD<i class="fa fa-user text-success"></i></ion-label>
+            <ion-label position="floating">RE-ENTER NEW PASSWORD<i class="fa fa-user text-white"></i></ion-label>
             <ion-input placeholder="minimum of 8 characters" type="password" formControlName="confirmPassword" style="font-size: 19px;"></ion-input>
           </ion-item>
         </div>
        </div>
         <div class="d-flex font-weight-bold mt-3 already">
           <button class="rem font-weight-bold" routerLink="/login">Login</button>
-          <button class="ml-2 text-success rem font-weight-bold" routerLink="/newsign">Create an Account</button>
+          <button class="ml-2 rem font-weight-bold" routerLink="/newsign">Create an Account</button>
         </div>
         <div class="btn">
-          <ion-button [disabled]="forms?.invalid" color="success" (click)="handleChange()">CHANGE PASSWORD</ion-button>
+          <ion-button [disabled]="forms?.invalid"  (click)="handleChange()">CHANGE PASSWORD</ion-button>
         </div>
       </form>
     </main>

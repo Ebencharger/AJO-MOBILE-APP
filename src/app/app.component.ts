@@ -27,12 +27,15 @@ export class AppComponent {
     //   ]
     //   this.nativeStorage.setItem("AJO", JSON.stringify(this.AJO));
     // }
+  // this.nativeStorage.remove("AJO");
     this.nativeStorage.getItem('AJO')
       .then(
-        data => this.AJO = JSON.parse(data),
+        data => {
+         this.AJO = JSON.parse(data)
+        },
         error => {
           this.AJO = [
-            { admin: [{ id: "AJO-ADMIN", password: "ajowill@2021" }],  user: []  }
+            {balance:0, admin: [{ id: "AJO-ADMIN", password: "ajowill@2021" }],  user: []  }
           ],
           this.nativeStorage.setItem("AJO", JSON.stringify(this.AJO)),
           error

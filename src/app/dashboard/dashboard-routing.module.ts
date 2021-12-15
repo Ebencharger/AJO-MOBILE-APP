@@ -5,6 +5,10 @@ import { MyprofilePage } from '../myprofile/myprofile.page';
 import { MythriftPage } from '../mythrift/mythrift.page';
 import { MywalletPage } from '../mywallet/mywallet.page';
 import { DashboardPage } from './dashboard.page';
+import { TransactionPage } from '../transaction/transaction.page';
+import { StatementPage } from '../statement/statement.page';
+import { MycashoutPage } from '../mycashout/mycashout.page';
+
 
 
 
@@ -18,6 +22,9 @@ const routes: Routes = [
       {path:"myprofile", component:MyprofilePage},
       {path:"mychangeplan", component:ChangeplaPage},
       {path:"mythrift", component:MythriftPage},
+      {path:"mytransaction", component:TransactionPage},
+      {path:"mystatement", component:StatementPage},
+      {path:"mycashout", component:MycashoutPage}
     ]
   }
 ];

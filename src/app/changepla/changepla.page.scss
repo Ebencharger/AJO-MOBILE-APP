@@ -6,7 +6,7 @@
     right: 0px;
         width: 100%;
         background-color: white;
-        height: 90vh;
+        height: 92vh;
         padding: 40px;
         display: flex;
         align-items: center;
@@ -22,7 +22,7 @@
             margin-bottom: 4%;
         }
         .balance{
-            color:#34D134;
+            color:#5BC8D7;
             font-size: 30px;
             font-weight: bold;
             margin-bottom: 30px;
@@ -32,7 +32,7 @@
            justify-content: center;
            display: flex;
            color: white;
-           background-color: #34D134;
+           background-color: #5BC8D7;
            width: 50px;
            height: 50px;
            margin-bottom: 20px;
@@ -52,7 +52,7 @@
 position: absolute;
 font-size: 25px;
 font-weight: bold;
-color: #34D134;
+color: #5BC8D7;
 margin-left: 5px;
 }
 
@@ -91,9 +91,14 @@ button{
     outline: none;
     width: 100%;
     height: 50px;
-    border-radius: 10px;
+    background-color: #5BC8D7 !important;
     color: white;
     margin-top: 20px;
 }
+}
+.btn-primary{
+    background-color: #5BC8D7 !important;
+    color: white !important;
+    width: 100% !important;
 }
 

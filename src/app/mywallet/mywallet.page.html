@@ -1,13 +1,32 @@
 <div class="wallet">
+  <div [hidden]="myCheck" class="cashout">
+    <div>
+      <img src="../../assets/undraw_personal_finance_tqcd.png" alt="">
+    </div>
+    <div class="text-center">
+      <h5>AJO's ENGINE PREDICTS IF IT IS YOUR TURN TO CASHOUT</h5>
+    </div>
+    <div (click)="handleRoute()" class="mybtn">
+      <button>AM I ELIGIBLE NOW?</button>
+    </div>
+    <div (click)="handleClose()" class="close">
+      <button class="btn btn-danger">CLOSE</button>
+    </div>
+  </div>
   <div class="spinner">
-   <div>
-    <i class="fa fa-spinner fa-spin"></i>
-   </div>
-   <div>
-     <h2>ACC BALANCE</h2>
-   </div>
-   <div>
-    <h1>{{myBal | currency}}</h1>
-   </div>
+    <div>
+      <i class="fa fa-spinner fa-spin"></i>
+    </div>
+    <div>
+      <h2>ACC BALANCE</h2>
+    </div>
+    <div>
+      <h1 style="color: #5BC8D7;">{{myBal | currency}}</h1>
+    </div>
+  </div>
+  <div class="dollar" (click)="handleCashout()">
+
+    <i class="fa fa-dollar"></i>
   </div>
 </div>
+<router-outlet></router-outlet>

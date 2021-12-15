@@ -83,7 +83,7 @@ export class NewsignPage implements OnInit {
     if (this.date.getDate() < 10) {
       this.day = "0" + this.date.getDate();
     }
-    else if (this.date.getDate() > 10) {
+    else if (this.date.getDate() >= 10) {
       this.day = this.date.getDate();
     }
     if (this.date.getMonth() < 10) {
@@ -126,7 +126,6 @@ export class NewsignPage implements OnInit {
   }
 
   handleSignUp() {
-    alert();
     let { fullname, country, phoneno, email, password, confirmPassword } = this.forms.value;
     if (password == confirmPassword) {
       this.forms.get('fullname')?.setValue([""])
@@ -138,10 +137,10 @@ export class NewsignPage implements OnInit {
       this.ussd = "";
       let acr = this.myCountryNo[this.countryIndex].code.toUpperCase();
       let uniq = "AJO"
-      this.newuser = { id: uniq + "-" + acr + "-" + "00" + (this.usercount + 1), time: 0, name: fullname, email: email, phone: this.myCountryNo[this.countryIndex].dial_code + phoneno, country: country, password: password, timereg: this.mycountry.time, datereg: this.mycountry.date, balance: 0, regbalance: 0, driftplan: [], statement: [], transaction: [], link: false, day: this.day, countday: this.day, month: this.newmonth, countmonth: this.newmonth, year: this.date.getFullYear(), countyear: this.date.getFullYear() }
+      this.newuser = { id: uniq + "-" + acr + "-" + "00" + (this.usercount + 1), time: 0, name: fullname, email: email, phone: this.myCountryNo[this.countryIndex].dial_code + phoneno, country: country, password: password, timereg: this.mycountry.time, datereg: this.mycountry.date, balance: 0, regbalance: 0, driftplan: [], statement: [], transaction: [], link: false, day: this.day, countday: this.day, month: this.newmonth, countmonth: this.newmonth, year: this.date.getFullYear(), countyear: this.date.getFullYear(), permission:"not granted", credit:0 }
       this.user = this.newuser;
       this.AJO[0].user.push(this.user);
-      localStorage.setItem("AJO", JSON.stringify(this.AJO))
+      // localStorage.setItem("AJO", JSON.stringify(this.AJO))
       this.nativeStorage.setItem('AJO', JSON.stringify(this.AJO))
         .then(
           () => console.log('Stored item!'),

@@ -3,30 +3,30 @@
     <main class="col-sm">
       <form class="bBody" [formGroup]="forms">
         <div class="login">
-          <p class="text-success">USER LOGIN PAGE</p>
+          <p class="text-white">USER LOGIN PAGE</p>
         </div>
         <div class="fauser">
-          <i class="fa fa-user text-success"></i>
+          <i class="fa fa-user text-white"></i>
         </div>
       
         <div class="user">
           <ion-item class="input">
-            <ion-label position="floating">YOUR EMAIL <i class="fa fa-user text-success"></i></ion-label>
+            <ion-label position="floating">YOUR EMAIL <i class="fa fa-user text-white"></i></ion-label>
             <ion-input formControlName="email" clear-input="true" style="font-size: 19px;"></ion-input>
           </ion-item>
         </div>
         <div class="user">
           <ion-item class="input">
-            <ion-label position="floating">YOUR PASSWORD <i class="fa fa-lock text-success"></i></ion-label>
+            <ion-label position="floating">YOUR PASSWORD <i class="fa fa-lock text-white"></i></ion-label>
             <ion-input type="password" formControlName="password" clear-input="true"  style="font-size: 19px;" color="red"></ion-input>
           </ion-item>
         </div>
         <div class="d-flex font-weight-bold mt-3">
           <button class="rem font-weight-bold" routerLink="/mysignup">Forgotten Password?</button>
-          <button class="ml-2 text-success rem font-weight-bold" routerLink="/newsign">Create an Account</button>
+          <button class="ml-2 rem font-weight-bold" routerLink="/newsign">Create an Account</button>
         </div>
         <div class="btn">
-          <ion-button (click)="handleLogin()" [disabled]="forms?.invalid" color="success">LOGIN</ion-button>
+          <ion-button (click)="handleLogin()" [disabled]="forms?.invalid">LOGIN</ion-button>
         </div>
       </form>
     </main>

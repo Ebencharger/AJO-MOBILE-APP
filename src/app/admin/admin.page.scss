@@ -1,0 +1,66 @@
+.bBody{
+    width: 100%;
+    height: 100vh;
+    background-color: #5BC8D7;
+    .header{
+        height: 60px;
+        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.4);
+        background-color: #5BC8D7;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .ml-2{
+            font-weight: bold;
+        }
+         i{
+             font-size: 30px;
+         }
+         p{
+             font-size: 20px;
+             font-weight: bold;
+         }
+    }
+
+    .custlist{
+        height: 92vh;
+        width: 100%;
+        margin-top: 0px;
+        background-color: white;
+        overflow-y: scroll;
+        padding-bottom: 40px;
+        .eachuser{
+            width: 100%;
+            height: 270px;
+            margin-top: 40px;
+            margin-bottom: 10px;
+            background-color: rgb(255, 255, 255);
+            box-shadow: 0px 0px 3px black;
+            padding: 20px;
+            .d-flex{
+                font-size: 25px;
+                color:black;
+                font-weight: bold;
+            }
+            input{
+                width: 100%;
+            }
+            button{
+                width: 100%;
+                height: 50px;
+                background-color: #5BC8D7;
+                color: white;
+                font-size: 25px;
+            }
+        }
+    }
+
+   } 
+.mt-2{
+    font-size: 25px;
+    color:black;
+    font-weight: bold;
+}
+  
+
+
+  

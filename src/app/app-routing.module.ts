@@ -51,6 +51,22 @@ const routes: Routes = [
     path: 'create',
     loadChildren: () => import('./create/create.module').then( m => m.CreatePageModule)
   },
+  {
+    path: 'dashboard/mytransaction',
+    loadChildren: () => import('./transaction/transaction.module').then( m => m.TransactionPageModule)
+  },
+  {
+    path: 'dashboard/mystatement',
+    loadChildren: () => import('./statement/statement.module').then( m => m.StatementPageModule)
+  },
+  {
+    path: 'admin',
+    loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
+  },
+  {
+    path: 'dashboard/mycashout',
+    loadChildren: () => import('./mycashout/mycashout.module').then( m => m.MycashoutPageModule)
+  },
 ];
 
 @NgModule({
