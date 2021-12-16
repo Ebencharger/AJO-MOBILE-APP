@@ -177,7 +177,7 @@ export class MythriftPage implements OnInit {
 
   drift() {
     let driftSta = { amountDrif: this.driftAmount, time: this.acctime, date: this.newdate, day: this.dayname, checkday: this.dayname, ref: this.ref };
-    this.AJO[0].user[this.myservice.id].balance = (Number(this.driftAmount * 560)) + this.AJO[0].user[this.myservice.id].balance;
+    this.AJO[0].user[this.myservice.id].balance = (Number(this.driftAmount * 560)) + Number(this.AJO[0].user[this.myservice.id].balance);
     this.AJO[0].balance = Number(this.AJO[0].balance) + Number(this.driftAmount);
     this.AJO[0].user[this.myservice.id].statement.push(driftSta);
     this.nativeStorage.setItem('AJO', JSON.stringify(this.AJO))

@@ -9,7 +9,7 @@
         <th>AMOUNT DRIFTED</th>
         <th>DATE DRIFTED</th>
         <th>TIME DRIFTED</th>
-        <tr *ngFor="let n of AJO[0].user[service.id].statement; let i=index">
+        <tr *ngFor="let n of user[service.id].statement; let i=index">
           <td>{{i+1}}</td>
           <td>{{n.amountDrif}}</td>
           <td>{{n.date}}</td>

@@ -10,21 +10,22 @@ import { MyServiceService } from '../my-service.service';
 export class TransactionPage implements OnInit {
   v:any;
   AJO:any;
+  user=[];
   constructor(private nativeStorage:NativeStorage, public service:MyServiceService) {
-
+  
    }
 
   ngOnInit() {
-    setInterval(()=>{
       this.nativeStorage.getItem('AJO')
     .then(
       data => {
       this.AJO = JSON.parse(data)
       },
       error => console.log(error)
-      
     );
-    }, 10)
+    setTimeout(() => {
+      this.user=this.AJO[0].user;
+    }, 500);
   }
 
 }

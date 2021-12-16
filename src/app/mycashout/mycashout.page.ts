@@ -51,7 +51,8 @@ export class MycashoutPage implements OnInit {
     this.newdate=this.day+"-"+this.newmonth+"-"+this.date.getFullYear();
     this.acctime=this.date.getHours()+":"+this.date.getMinutes();
 
-    this.nativeStorage.getItem('AJO')
+    setInterval(()=>{
+      this.nativeStorage.getItem('AJO')
     .then(
       data => {
         this.AJO = JSON.parse(data),
@@ -65,6 +66,7 @@ export class MycashoutPage implements OnInit {
         error
       }
     );
+    }, 1000)
      setTimeout(() => {
       this.timecount=this.AJO[0].user[this.service.id].time;
       this.balance = this.AJO[0].user[this.service.id].balance;
@@ -137,7 +139,7 @@ export class MycashoutPage implements OnInit {
       this.text= "$"+cashout + " is cashout! Wait for alert from your bank..."
       this.spin=false;
       this.disable=false;  
-      this.balance=(Number(this.balance))-(Number(cashout));
+      this.balance=(Number(this.balance))-(Number(cashout*560));
       this.AJO[0].user[this.service.id].year=this.date.getFullYear();
       this.AJO[0].user[this.service.id].countyear=this.date.getFullYear();
       this.AJO[0].user[this.service.id].month=this.date.getMonth();
@@ -147,7 +149,12 @@ export class MycashoutPage implements OnInit {
       this.AJO[0].user[this.service.id].balance=this.balance;
       let sendTran={amount:cashout, time:this.acctime, date:this.newdate};
       this.AJO[0].user[this.service.id].transaction.push(sendTran);
-      localStorage.setItem("AJO", JSON.stringify(this.AJO))
+      // localStorage.setItem("AJO", JSON.stringify(this.AJO))
+      this.nativeStorage.setItem('AJO', JSON.stringify(this.AJO))
+      .then(
+        () => console.log('Stored item!'),
+        error => alert('Error storing item'+ error)
+      );
      }, 5000);
    }
    else{
@@ -167,8 +174,7 @@ handleinp(){
     alert(JSON.stringify(this.forms.value)) 
   }
   else{
-    console.log(this.forms.value);
-    
+    console.log(this.forms.value);  
   }
 }
 
